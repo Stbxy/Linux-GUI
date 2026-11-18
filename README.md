@@ -18,7 +18,8 @@
 | Linux | Ubuntu 24.04.5 LTS |
 | WSL | 3.0.5，WSLg 可用 |
 | Python | 3.12.3 |
-| 状态 | L0 完成；L1 待你安装依赖并运行验证 |
+| 视觉/GUI | numpy 2.5.5、OpenCV 5.1.0、PySide6 6.12.0 |
+| 状态 | L0 完成；L1 依赖已装，待运行 GUI 验收 |
 
 GitHub 仓库：<https://github.com/Stbxy/Linux-GUI>
 
