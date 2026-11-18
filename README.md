@@ -18,7 +18,9 @@
 | Linux | Ubuntu 24.04.5 LTS |
 | WSL | 3.0.5，WSLg 可用 |
 | Python | 3.12.3 |
-| 状态 | 已建仓库，准备第 1 课 |
+| 状态 | L0 完成；L1 待你安装依赖并运行验证 |
+
+GitHub 仓库：<https://github.com/Stbxy/Linux-GUI>
 
 ## 文档
 
@@ -45,6 +47,11 @@ wsl -d Ubuntu-24.04
 # 查看仓库状态
 git status
 git log --oneline --graph
+
+# 第 1 课运行
+source ~/robot-venv/bin/activate
+cd /mnt/d/DSH/linux-gui
+python lessons/01_gui_test/main.py
 ```
 
 > 说明：WSL2 是开发环境，最终要部署到机器人本体的 Linux（Jetson / 树莓派 / 工控机）。两者不能混为一谈。
