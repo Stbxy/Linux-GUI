@@ -100,6 +100,12 @@ fc-cache -fv
 
 第 1 课不要求摄像头；测试图能显示就算通过。第 2 课再配置 usbipd-win 透传。
 
+## 验收记录（2026-11-18）
+
+- `Robot Vision GUI - Lesson 01` 窗口正常出现。
+- 环境：Ubuntu 24.04.5 / numpy 2.5.5 / OpenCV 5.1.0 / PySide6 6.12.0。
+- 结论：L1 通过；L2 相机接入暂停，下次继续。
+
 ## 出处
 
 - Qt for Python：<https://doc.qt.io/qtforpython-6/>
