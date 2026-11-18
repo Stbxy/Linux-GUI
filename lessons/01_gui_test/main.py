@@ -9,6 +9,9 @@ The window shows a generated test pattern at first. Click "打开摄像头" to t
 /dev/video0; if no camera is present, it stays on the test pattern.
 """
 
+# Teaching scaffold generated for this course on 2026-11-18.
+# Not an official Qt/OpenCV/ROS example. See ../../AUTHORS.md.
+
 from __future__ import annotations
 
 import sys

@@ -27,6 +27,7 @@ GitHub 仓库：<https://github.com/Stbxy/Linux-GUI>
 
 - [指导.md](指导.md)：课程路线、每课步骤、验收标准、权威出处
 - [日志.md](日志.md)：每次对话与学习记录
+- [AUTHORS.md](AUTHORS.md)：代码来源、署名与第三方许可证
 
 ## 学习路线
 
