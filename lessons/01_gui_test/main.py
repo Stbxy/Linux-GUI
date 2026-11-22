@@ -36,7 +36,7 @@ from PySide6.QtWidgets import (
 class VisionWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
-        self.setWindowTitle("Robot Vision GUI - Lesson 01")
+        self.setWindowTitle("My Robot Vision GUI")
         self.resize(1000, 680)
 
         self.cap: cv2.VideoCapture | None = None
@@ -51,14 +51,14 @@ class VisionWindow(QMainWindow):
         self.image_label = QLabel("starting...")
         self.image_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.image_label.setMinimumSize(640, 360)
-        self.image_label.setStyleSheet("background:#101418; color:#d8dee9;")
+        self.image_label.setStyleSheet("background:#1b2a41; color:#ffffff;")
         self.image_label.setSizePolicy(
             QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding
         )
         layout.addWidget(self.image_label, 1)
 
         controls = QHBoxLayout()
-        self.source_button = QPushButton("打开摄像头")
+        self.source_button = QPushButton("开启相机")
         self.source_button.clicked.connect(self.toggle_camera)
         controls.addWidget(self.source_button)
 
@@ -74,12 +74,7 @@ class VisionWindow(QMainWindow):
 
     def make_test_frame(self) -> np.ndarray:
         width, height = 960, 540
-        xx = np.linspace(0, 255, width, dtype=np.uint8)
-        yy = np.linspace(0, 255, height, dtype=np.uint8)
-        blue = np.tile(xx, (height, 1))
-        green = np.tile(yy[:, None], (1, width))
-        red = np.full((height, width), 90, dtype=np.uint8)
-        frame = cv2.merge([blue, green, red])
+        frame = np.full((height, width, 3), (65, 42, 27), dtype=np.uint8)
 
         t = time.perf_counter()
         cx = int((t * 150) % width)
