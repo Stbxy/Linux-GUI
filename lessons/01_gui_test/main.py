@@ -128,7 +128,7 @@ class VisionWindow(QMainWindow):
                 "未检测到 /dev/video0：继续测试图。第 2 课配置 USB 透传。"
             )
             return
-
+        cap.set(cv2.CAP_PROP_FOURCC, cv2.VideoWriter_fourcc(*"MJPG"))
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
         self.cap = cap

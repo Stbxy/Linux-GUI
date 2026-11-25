@@ -25,6 +25,9 @@ Thumbs.db
 *.pid
 .env
 
+# Test captures
+frame*.png
+
 # Large local data (keep small test assets in git)
 data/
 models/
