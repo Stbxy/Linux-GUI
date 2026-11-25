@@ -107,6 +107,76 @@ ros2 run demo_nodes_py listener
 - apt 下载失败：检查代理和网络。
 - `dpkg` 依赖错误：把完整输出发我，不要继续乱装。
 
+## listener 收不到消息
+
+先不要重装。按顺序检查。
+
+### 1. 两个终端都加载环境
+
+两个终端都执行：
+
+~~~bash
+deactivate
+source /opt/ros/jazzy/setup.bash
+~~~
+
+逐行解释：
+
+- `deactivate`：如果还在 `(robot-venv)` 里，先退出；ROS 2 用系统 Python。
+- `source ...`：加载 ROS 2 环境。
+
+### 2. 确认节点和话题
+
+在 talker 运行时，另开终端：
+
+~~~bash
+source /opt/ros/jazzy/setup.bash
+ros2 node list
+ros2 topic list
+ros2 topic info /chatter
+~~~
+
+逐行解释：
+
+- `ros2 node list`：应该看到 `/talker`。
+- `ros2 topic list`：应该看到 `/chatter`。
+- `ros2 topic info /chatter`：看发布者/订阅者数量。
+
+### 3. 直接 echo 话题
+
+~~~bash
+ros2 topic echo /chatter
+~~~
+
+逐行解释：
+
+- `ros2 topic echo`：直接订阅并打印话题内容。
+- 能看到 `data: Hello World: N`，说明发布/发现正常，问题在 listener。
+- 看不到，说明 DDS 发现或网络有问题。
+
+### 4. 限制为本地发现
+
+两个终端都执行，然后重启 talker/listener：
+
+~~~bash
+export ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST
+~~~
+
+逐行解释：
+
+- `export`：设置当前 shell 的环境变量。
+- `ROS_AUTOMATIC_DISCOVERY_RANGE=LOCALHOST`：只在本机发现节点，避开 WSL 多播问题。
+
+### 5. 诊断报告
+
+~~~bash
+ros2 doctor --report
+~~~
+
+逐行解释：
+
+- `ros2 doctor`：检查 ROS 2 配置和网络。
+- `--report`：输出完整报告。
 ## 出处
 
 - ROS 2 Jazzy 官方安装文档：<https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html>
